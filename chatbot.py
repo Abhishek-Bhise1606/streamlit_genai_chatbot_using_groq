@@ -110,9 +110,8 @@ body,
 
     background: linear-gradient(
         135deg,
-        #0f0c29,
-        #302b63,
-        #24243e
+        #000428,
+        #004e92
     ) !important;
 
     color: white !important;
@@ -152,7 +151,6 @@ footer {
 [data-testid="ScrollToBottomContainer"] {
     background: transparent !important;
 }
-
 </style>
 """, unsafe_allow_html=True)
 
