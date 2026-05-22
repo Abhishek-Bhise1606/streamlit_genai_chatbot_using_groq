@@ -68,7 +68,7 @@ st.markdown("""
 
 /* Sidebar */
 [data-testid="stSidebar"] {
-    background: linear-gradient(135deg, #0f172a, #0891b2);
+    background: linear-gradient(135deg, #000428, #004e92);
 }
 
 /* Buttons */
