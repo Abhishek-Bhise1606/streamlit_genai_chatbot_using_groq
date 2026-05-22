@@ -23,84 +23,137 @@ st.set_page_config(
 # ==============================
 # CUSTOM CSS
 # ==============================
+
 st.markdown("""
 <style>
 
-/* Main App Background */
+/* Main Background */
 .stApp {
-    background: linear-gradient(to right, #0f172a, #1e293b);
+    background: linear-gradient(135deg, #000428, #004e92);
     color: white;
 }
 
-/* Headers */
-h1, h2, h3, h4, h5, h6, p {
-    color: white;
+/* Title */
+.main-title {
+    text-align: center;
+    font-size: 55px;
+    font-weight: bold;
+    color: #4ade80;
+    margin-bottom: 10px;
 }
 
+/* Subtitle */
+.sub-title {
+    text-align: center;
+    font-size: 18px;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+/* Chat Message */
+.stChatMessage {
+    background: rgba(59, 130, 246, 0.12);
+    padding: 15px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+
+    line-height: 1.7;
+    font-size: 16px;
+
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
 /* Sidebar */
 [data-testid="stSidebar"] {
-    background-color: #111827;
+    background: linear-gradient(135deg, #000428, #004e92);
 }
-
-/* Chat Message Styling */
-.stChatMessage {
-    border-radius: 15px;
-    padding: 12px;
-    margin-bottom: 10px;
-    background-color: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-}
-
-/* User Message */
-[data-testid="chatAvatarIcon-user"] {
-    background-color: #2563eb;
-}
-
-/* Assistant Message */
-[data-testid="chatAvatarIcon-assistant"] {
-    background-color: #06b6d4;
-}
-
-/* Chat Input */
-.stChatInput input {
-    background-color: #1e293b !important;
-    color: white !important;
-    border-radius: 12px !important;
-    border: 1px solid #334155 !important;
-}
-
-/* Buttons */
-.stButton button {
+/*Button*/
+.stButton>button {
     width: 100%;
+    background: linear-gradient(to right, #06b6d4, #2563eb);
+    color: white;
     border-radius: 12px;
-    background: linear-gradient(to right, #06b6d4, #3b82f6);
-    color: white;
-    font-weight: bold;
+    height: 3em;
     border: none;
-    padding: 10px;
-    transition: 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+
+    box-shadow: 0 4px 15px rgba(6,182,212,0.35);
 }
 
-.stButton button:hover {
-    transform: scale(1.02);
-    background: linear-gradient(to right, #0891b2, #2563eb);
+.stButton>button:hover {
+    background: linear-gradient(to right, #16a34a, #15803d);
 }
 
-/* Select Box */
-.stSelectbox div[data-baseweb="select"] {
-    background-color: #1e293b;
+/* Input */
+.stChatInput input {
     border-radius: 10px;
-    color: white;
+    padding: 12px;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
+/* Footer */
+.footer {
+    text-align: center;
+    color: #9CA3AF;
+    margin-top: 30px;
+    font-size: 15px;
+}
+/* Full Webpage Background */
+html,
+body,
+.stApp,
+[data-testid="stAppViewContainer"],
+.main,
+.block-container {
+
+    background: linear-gradient(
+        135deg,
+        #0f0c29,
+        #302b63,
+        #24243e
+    ) !important;
+
+    color: white !important;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #475569;
-    border-radius: 10px;
+/* Remove Black Header */
+header {
+    background: transparent !important;
+}
+
+/* Remove Top Bar Black Color */
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* Remove Toolbar Black */
+[data-testid="stToolbar"] {
+    background: transparent !important;
+}
+
+/* Remove Main Section Black */
+section.main {
+    background: transparent !important;
+}
+
+/* Remove Bottom Black Area */
+footer {
+    background: transparent !important;
+}
+
+/* Remove Default Streamlit Container */
+[data-testid="stVerticalBlock"] {
+    background: transparent !important;
+}
+
+/* Remove Chat Area Black */
+[data-testid="ScrollToBottomContainer"] {
+    background: transparent !important;
 }
 
 </style>
@@ -122,9 +175,7 @@ with st.sidebar:
         "Choose AI Model",
         [
             "llama-3.3-70b-versatile",
-            "llama-3.3-70b-versatile",
-            "gemma2-9b-it",
-            "mixtral-8x7b-32768"
+            "llama-3.1-8b-instant"
         ]
     )
 
@@ -199,7 +250,8 @@ llm = ChatGroq(
 )
 
 # ==============================
-# USER INPUT
+# USER INPUT36
+
 # ==============================
 user_prompt = st.chat_input("💬 Ask anything...")
 
@@ -232,12 +284,35 @@ if user_prompt:
                 [
                     {
                         "role": "system",
-                        "content": "You are a smart and helpful AI assistant."
+                        "content": """
+            You are a smart AI learning assistant.
+
+            Always answer in this format:
+
+            📌 Topic Overview
+            - Short explanation of the topic
+
+            🧠 Step-by-Step Explanation
+            1. Step one explanation
+            2. Step two explanation
+            3. Step three explanation
+
+            💻 Example
+            - Give simple code examples when needed
+
+            ✅ Final Summary
+            - Short conclusion
+
+            Rules:
+            - Explain like a teacher
+            - Use simple beginner-friendly language
+            - Use bullet points and emojis
+            - Keep answers clean and structured
+            """
                     },
                     *st.session_state.chat_history
                 ]
             )
-
             for chunk in stream:
 
                 if chunk.content:
