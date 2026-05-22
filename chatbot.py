@@ -68,7 +68,7 @@ st.markdown("""
 
 /* Sidebar */
 [data-testid="stSidebar"] {
-    background-color: #111827;
+    background-color:135deg, #000428, #004e92;
 }
 
 /* Buttons */
