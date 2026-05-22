@@ -103,58 +103,6 @@ st.markdown("""
     margin-top: 30px;
     font-size: 15px;
 }
-/* Full Webpage Background */
-html,
-body,
-.stApp,
-[data-testid="stAppViewContainer"],
-.main,
-.block-container {
-
-    background: linear-gradient(
-        135deg,
-        #0f0c29,
-        #302b63,
-        #24243e
-    ) !important;
-
-    color: white !important;
-}
-
-/* Remove Black Header */
-header {
-    background: transparent !important;
-}
-
-/* Remove Top Bar Black Color */
-[data-testid="stHeader"] {
-    background: transparent !important;
-}
-
-/* Remove Toolbar Black */
-[data-testid="stToolbar"] {
-    background: transparent !important;
-}
-
-/* Remove Main Section Black */
-section.main {
-    background: transparent !important;
-}
-
-/* Remove Bottom Black Area */
-footer {
-    background: transparent !important;
-}
-
-/* Remove Default Streamlit Container */
-[data-testid="stVerticalBlock"] {
-    background: transparent !important;
-}
-
-/* Remove Chat Area Black */
-[data-testid="ScrollToBottomContainer"] {
-    background: transparent !important;
-}
 
 </style>
 """, unsafe_allow_html=True)
