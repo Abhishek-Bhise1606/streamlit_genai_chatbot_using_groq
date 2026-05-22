@@ -128,8 +128,3 @@ Add your project screenshots here.
 
 Developed by **Abhishek Bhise**
 
----
-
-## 📜 License
-
-This project is open-source and available under the MIT License.
