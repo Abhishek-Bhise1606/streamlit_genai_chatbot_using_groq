@@ -29,7 +29,7 @@ st.markdown("""
 
 /* Main Background */
 .stApp {
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(to right, #0f172a, #111827, #1e293b);
     color: white;
 }
 
@@ -49,13 +49,14 @@ st.markdown("""
     color: #cbd5e1;
     margin-bottom: 30px;
 }
+
 /* Chat Message */
 .stChatMessage {
-    background: rgba(59, 130, 246, 0.12);
+    background-color: rgba(255,255,255,0.05);
     padding: 15px;
-    border-radius: 18px;
+    border-radius: 15px;
     margin-bottom: 15px;
-    border: 1px solid rgba(59, 130, 246, 0.25);
+    border: 1px solid rgba(255,255,255,0.08);
 
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -64,26 +65,23 @@ st.markdown("""
 
     line-height: 1.7;
     font-size: 16px;
-
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
+
 /* Sidebar */
 [data-testid="stSidebar"] {
-    background: linear-gradient(135deg, #000428, #004e92);
+    background-color: #111827;
 }
-/*Button*/
+
+/* Buttons */
 .stButton>button {
     width: 100%;
-    background: linear-gradient(to right, #06b6d4, #2563eb);
+    background: linear-gradient(to right, #22c55e, #16a34a);
     color: white;
-    border-radius: 12px;
+    border-radius: 10px;
     height: 3em;
     border: none;
     font-size: 16px;
     font-weight: bold;
-
-    box-shadow: 0 4px 15px rgba(6,182,212,0.35);
 }
 
 .stButton>button:hover {
