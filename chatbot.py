@@ -29,10 +29,9 @@ st.markdown("""
 
 /* Main Background */
 .stApp {
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(135deg, #141e30, #243b55, #0f172a);
     color: white;
 }
-
 /* Title */
 .main-title {
     text-align: center;
